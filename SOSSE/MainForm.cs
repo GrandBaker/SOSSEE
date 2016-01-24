@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -66,13 +66,13 @@ namespace SOSSE
             }
 
             byte[] rawSave = File.ReadAllBytes(openFileDialog.FileName);
-            if (rawSave[0x48] != 0x11)
+            if (rawSave[0x58] != 0x11)
             {
                 MessageBox.Show("Invalid save file", "Error");
                 return;
             }
-            byte[] compressed = new byte[rawSave.Length - 0x48];
-            Array.Copy(rawSave, 0x48, compressed, 0, rawSave.Length - 0x48);
+            byte[] compressed = new byte[rawSave.Length - 0x58];
+            Array.Copy(rawSave, 0x58, compressed, 0, rawSave.Length - 0x58);
 
             // Decompress
             byte[] decompressed = null;
@@ -86,20 +86,22 @@ namespace SOSSE
                         decompressed = outStream.ToArray();
                     else
                     {
-                        MessageBox.Show("Invalid save file", "Error");
+                        MessageBox.Show("Invalid save file", "Decompress Error");
                         return;
                     }
                 }
             }
 
             // Check file validity and save loading
+            /*
             if (decompressed.Length != 0x51FB8)
             {
                 MessageBox.Show("Invalid save file", "Error");
                 return;
             }
-            Header = new byte[0x48];
-            Array.Copy(rawSave, 0, Header, 0, 0x48);
+            */
+            Header = new byte[0x58];
+            Array.Copy(rawSave, 0, Header, 0, 0x58);
             SaveData = decompressed;
             enableButtons();
         }        
