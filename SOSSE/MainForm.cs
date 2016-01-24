@@ -93,13 +93,18 @@ namespace SOSSE
             }
 
             // Check file validity and save loading
-            /*
-            if (decompressed.Length != 0x51FB8)
+            if (decompressed.Length != 0x524F8)
             {
                 MessageBox.Show("Invalid save file", "Error");
                 return;
             }
-            */
+
+            // Check decompressed save file size
+            /*
+            string filesize = Convert.ToString(decompressed.Length);
+            MessageBox.Show(filesize, "bytesize");
+             */
+             
             Header = new byte[0x58];
             Array.Copy(rawSave, 0, Header, 0, 0x58);
             SaveData = decompressed;
