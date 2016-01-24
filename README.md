@@ -1,5 +1,5 @@
 # SOSSE
-A save editor for Story of Seasons game, written in C#.
+[WIP] A save editor for Story of Seasons game, written in C#.
 
 Requirements
 ===============
@@ -9,7 +9,7 @@ or SaveDataFiler
 
 Download
 ==========
-http://github.com/RainThunder/SOSSE/releases
+http://github.com/Alex193a/SOSSE/releases
 
 Notes before using
 ==================
@@ -30,3 +30,4 @@ Screenshot
 Credits
 =======
 * [barubary](https://github.com/Barubary)'s [DSDecmp](https://github.com/Barubary/dsdecmp)
+* [RainThunder](https://github.com/RainThunder)'s [SOSSE](https://github.com/RainThunder/SOSSE)
