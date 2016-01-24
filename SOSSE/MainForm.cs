@@ -49,7 +49,7 @@ namespace SOSSE
             if (itemEditingForm != null) itemEditingForm.Close();
         }
 
-        private void openButton_Click(object sender, EventArgs e)
+        public void openButton_Click(object sender, EventArgs e)
         {
             closeAllHiddenForm();
             OpenFileDialog openFileDialog = new OpenFileDialog();
@@ -84,12 +84,25 @@ namespace SOSSE
                     lz11.Decompress(inStream, compressed.Length, outStream);
                     if (outStream != null)
                         decompressed = outStream.ToArray();
+                         
                     else
                     {
                         MessageBox.Show("Invalid save file", "Decompress Error");
                         return;
                     }
                 }
+                //only for testing
+                /*
+                using (FileStream fs = new FileStream("dec2.bin", FileMode.Create, FileAccess.Write))
+                {
+                    using (BinaryWriter bw = new BinaryWriter(fs))
+                    {
+                        
+                        bw.Write(decompressed);
+                    }
+                }
+                 */
+                
             }
 
             // Check file validity and save loading
@@ -221,6 +234,11 @@ namespace SOSSE
         private void aboutButton_Click(object sender, EventArgs e)
         {
             new AboutBox().ShowDialog();
+        }
+
+        private void MainForm_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

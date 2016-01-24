@@ -11,7 +11,7 @@ namespace SOSSE
 {
     public partial class BalanceForm : Form
     {
-        private const int balanceOffset = 0x510B0;
+        private const int balanceOffset = 0x510BC;
         private const int maxEntries = 68;
 
         public BalanceForm()
