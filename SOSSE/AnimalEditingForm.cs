@@ -110,22 +110,22 @@ namespace SOSSE
             {
                 get
                 {
-                    return animalBytes[0x1A];
+                    return animalBytes[0x12];
                 }
                 set
                 {
-                    animalBytes[0x1A] = value;
+                    animalBytes[0x12] = value;
                 }
             }
             public byte BirthdayDay
             {
                 get
                 {
-                    return animalBytes[0x1B];
+                    return animalBytes[0x2C];
                 }
                 set
                 {
-                    animalBytes[0x1B] = value;
+                    animalBytes[0x2C] = value;
                 }
             }
             public bool IsTouched
@@ -708,10 +708,10 @@ namespace SOSSE
         }
         #endregion
 
-        private const int animalOffset = 0x1C508;
+        private const int animalOffset = 0x1CA64;
         private const int wildOffset = 0x1E818;
         private const int petOffset = 0x1EFB0;
-        private const int horseOffset = 0x1F2F8;
+        private const int horseOffset = 0x1F628;
         private Animal currentAnimal;
         private int currentAnimalSlot;
         private bool canEditAnimal;
@@ -809,10 +809,10 @@ namespace SOSSE
         {
             DataLoaded = false;
 
-            byte[] animalBytes = new byte[140];
+            byte[] animalBytes = new byte[94];
             int slot = animalSlotComboBox.SelectedIndex;
-            Array.Copy(MainForm.SaveData, animalOffset + 140 * slot,
-                animalBytes, 0, 140);
+            Array.Copy(MainForm.SaveData, animalOffset + 94 * slot,
+                animalBytes, 0, 94);
             currentAnimal = new Animal(animalBytes);
 
             short animalType = currentAnimal.Type;
@@ -831,8 +831,8 @@ namespace SOSSE
             collectCheckBox.Checked = currentAnimal.IsCollected;
             eatCheckBox.Checked = currentAnimal.IsAte;
             pregnantCheckBox.Checked = currentAnimal.IsPregnant;
-            personalityComboBox.SelectedIndex = (int)currentAnimal.Personality;
-            stateComboBox.SelectedIndex = (int)currentAnimal.State;
+            //personalityComboBox.SelectedIndex = (int)currentAnimal.Personality;
+            //stateComboBox.SelectedIndex = (int)currentAnimal.State;
             productNumericUpDown.Value = currentAnimal.ByProducts;
             pregnantNumericUpDown.Value = currentAnimal.PregnantDays;
             woolNumericUpDown.Value = currentAnimal.NextWool;
@@ -1166,6 +1166,7 @@ namespace SOSSE
             saveCurrentWildAnimal();
             saveCurrentPet();
             saveHorse();
+
         }
     }
 }

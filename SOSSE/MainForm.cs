@@ -28,20 +28,20 @@ namespace SOSSE
         private void enableButtons()
         {
             saveAsButton.Enabled = true;
-            itemButton.Enabled = true;
-            objectButton.Enabled = true;
-            shipLogButton.Enabled = true;
+            itemButton.Enabled = false;
+            objectButton.Enabled = false;
+            shipLogButton.Enabled = false;
             balanceButton.Enabled = true;
-            blueprintButton.Enabled = true;
-            conquestButton.Enabled = true;
-            shopButton.Enabled = true;
-            animalButton.Enabled = true;
-            patternButton.Enabled = true;
-            recipeButton.Enabled = true;
-            vendorButton.Enabled = true;
-            npcButton.Enabled = true;
+            blueprintButton.Enabled = false;
+            conquestButton.Enabled = false;
+            shopButton.Enabled = false;
+            animalButton.Enabled = false;
+            patternButton.Enabled = false;
+            recipeButton.Enabled = false;
+            vendorButton.Enabled = false;
+            npcButton.Enabled = false;
             generalButton.Enabled = true;
-            eventButton.Enabled = true;
+            eventButton.Enabled = false;
         }
 
         private void closeAllHiddenForm()
