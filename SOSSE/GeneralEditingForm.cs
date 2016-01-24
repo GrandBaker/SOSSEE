@@ -77,7 +77,7 @@ namespace SOSSE
             ulong money;
             bool isValid = UInt64.TryParse(moneyTextBox.Text, out money);
             if (isValid)
-                Array.Copy(BitConverter.GetBytes(money), 0, MainForm.SaveData, 0x98, 8);
+                Array.Copy(BitConverter.GetBytes(money), 0, MainForm.SaveData, 0xA8, 8);
             // Health
             ushort health = (ushort)healthNumericUpDown.Value;
             MainForm.SaveData[0xA0] = (byte)(health & 0xFF);
@@ -94,6 +94,11 @@ namespace SOSSE
         }
 
         private void GeneralEditingForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            SaveGeneral();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
         {
             SaveGeneral();
         }

@@ -47,6 +47,7 @@
             this.difficultyGroupBox = new System.Windows.Forms.GroupBox();
             this.originalRadioButton = new System.Windows.Forms.RadioButton();
             this.seedlingRadioButton = new System.Windows.Forms.RadioButton();
+            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.healthNumericUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.staminaNumericUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.yearNumericUpDown)).BeginInit();
@@ -57,50 +58,56 @@
             // 
             // healthNumericUpDown
             // 
-            this.healthNumericUpDown.Location = new System.Drawing.Point(56, 12);
+            this.healthNumericUpDown.Location = new System.Drawing.Point(112, 24);
+            this.healthNumericUpDown.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.healthNumericUpDown.Name = "healthNumericUpDown";
-            this.healthNumericUpDown.Size = new System.Drawing.Size(48, 20);
+            this.healthNumericUpDown.Size = new System.Drawing.Size(96, 31);
             this.healthNumericUpDown.TabIndex = 0;
             // 
             // staminaNumericUpDown
             // 
-            this.staminaNumericUpDown.Location = new System.Drawing.Point(224, 12);
+            this.staminaNumericUpDown.Location = new System.Drawing.Point(448, 24);
+            this.staminaNumericUpDown.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.staminaNumericUpDown.Name = "staminaNumericUpDown";
-            this.staminaNumericUpDown.Size = new System.Drawing.Size(48, 20);
+            this.staminaNumericUpDown.Size = new System.Drawing.Size(96, 31);
             this.staminaNumericUpDown.TabIndex = 1;
             // 
             // healthLabel
             // 
             this.healthLabel.AutoSize = true;
-            this.healthLabel.Location = new System.Drawing.Point(12, 15);
+            this.healthLabel.Location = new System.Drawing.Point(24, 30);
+            this.healthLabel.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.healthLabel.Name = "healthLabel";
-            this.healthLabel.Size = new System.Drawing.Size(38, 13);
+            this.healthLabel.Size = new System.Drawing.Size(74, 25);
             this.healthLabel.TabIndex = 2;
             this.healthLabel.Text = "Health";
             // 
             // staminaLabel
             // 
             this.staminaLabel.AutoSize = true;
-            this.staminaLabel.Location = new System.Drawing.Point(173, 15);
+            this.staminaLabel.Location = new System.Drawing.Point(346, 30);
+            this.staminaLabel.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.staminaLabel.Name = "staminaLabel";
-            this.staminaLabel.Size = new System.Drawing.Size(45, 13);
+            this.staminaLabel.Size = new System.Drawing.Size(90, 25);
             this.staminaLabel.TabIndex = 3;
             this.staminaLabel.Text = "Stamina";
             // 
             // moneyTextBox
             // 
-            this.moneyTextBox.Location = new System.Drawing.Point(56, 39);
+            this.moneyTextBox.Location = new System.Drawing.Point(112, 78);
+            this.moneyTextBox.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.moneyTextBox.Name = "moneyTextBox";
-            this.moneyTextBox.Size = new System.Drawing.Size(100, 20);
+            this.moneyTextBox.Size = new System.Drawing.Size(196, 31);
             this.moneyTextBox.TabIndex = 4;
             this.moneyTextBox.TextChanged += new System.EventHandler(this.moneyTextBox_TextChanged);
             // 
             // moneyLabel
             // 
             this.moneyLabel.AutoSize = true;
-            this.moneyLabel.Location = new System.Drawing.Point(12, 42);
+            this.moneyLabel.Location = new System.Drawing.Point(24, 84);
+            this.moneyLabel.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.moneyLabel.Name = "moneyLabel";
-            this.moneyLabel.Size = new System.Drawing.Size(39, 13);
+            this.moneyLabel.Size = new System.Drawing.Size(77, 25);
             this.moneyLabel.TabIndex = 5;
             this.moneyLabel.Text = "Money";
             // 
@@ -108,23 +115,26 @@
             // 
             this.monthComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.monthComboBox.FormattingEnabled = true;
-            this.monthComboBox.Location = new System.Drawing.Point(56, 66);
+            this.monthComboBox.Location = new System.Drawing.Point(112, 132);
+            this.monthComboBox.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.monthComboBox.Name = "monthComboBox";
-            this.monthComboBox.Size = new System.Drawing.Size(48, 21);
+            this.monthComboBox.Size = new System.Drawing.Size(92, 33);
             this.monthComboBox.TabIndex = 6;
             // 
             // dayComboBox
             // 
             this.dayComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.dayComboBox.FormattingEnabled = true;
-            this.dayComboBox.Location = new System.Drawing.Point(142, 66);
+            this.dayComboBox.Location = new System.Drawing.Point(284, 132);
+            this.dayComboBox.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.dayComboBox.Name = "dayComboBox";
-            this.dayComboBox.Size = new System.Drawing.Size(47, 21);
+            this.dayComboBox.Size = new System.Drawing.Size(90, 33);
             this.dayComboBox.TabIndex = 7;
             // 
             // yearNumericUpDown
             // 
-            this.yearNumericUpDown.Location = new System.Drawing.Point(235, 66);
+            this.yearNumericUpDown.Location = new System.Drawing.Point(470, 132);
+            this.yearNumericUpDown.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.yearNumericUpDown.Maximum = new decimal(new int[] {
             99,
             0,
@@ -136,7 +146,7 @@
             0,
             0});
             this.yearNumericUpDown.Name = "yearNumericUpDown";
-            this.yearNumericUpDown.Size = new System.Drawing.Size(37, 20);
+            this.yearNumericUpDown.Size = new System.Drawing.Size(74, 31);
             this.yearNumericUpDown.TabIndex = 8;
             this.yearNumericUpDown.Value = new decimal(new int[] {
             1,
@@ -147,69 +157,76 @@
             // monthLabel
             // 
             this.monthLabel.AutoSize = true;
-            this.monthLabel.Location = new System.Drawing.Point(12, 68);
+            this.monthLabel.Location = new System.Drawing.Point(24, 136);
+            this.monthLabel.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.monthLabel.Name = "monthLabel";
-            this.monthLabel.Size = new System.Drawing.Size(37, 13);
+            this.monthLabel.Size = new System.Drawing.Size(72, 25);
             this.monthLabel.TabIndex = 9;
             this.monthLabel.Text = "Month";
             // 
             // dayLabel
             // 
             this.dayLabel.AutoSize = true;
-            this.dayLabel.Location = new System.Drawing.Point(110, 69);
+            this.dayLabel.Location = new System.Drawing.Point(220, 138);
+            this.dayLabel.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.dayLabel.Name = "dayLabel";
-            this.dayLabel.Size = new System.Drawing.Size(26, 13);
+            this.dayLabel.Size = new System.Drawing.Size(50, 25);
             this.dayLabel.TabIndex = 10;
             this.dayLabel.Text = "Day";
             // 
             // yearLabel
             // 
             this.yearLabel.AutoSize = true;
-            this.yearLabel.Location = new System.Drawing.Point(195, 68);
+            this.yearLabel.Location = new System.Drawing.Point(390, 136);
+            this.yearLabel.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.yearLabel.Name = "yearLabel";
-            this.yearLabel.Size = new System.Drawing.Size(29, 13);
+            this.yearLabel.Size = new System.Drawing.Size(58, 25);
             this.yearLabel.TabIndex = 11;
             this.yearLabel.Text = "Year";
             // 
             // hourNumericUpDown
             // 
-            this.hourNumericUpDown.Location = new System.Drawing.Point(56, 94);
+            this.hourNumericUpDown.Location = new System.Drawing.Point(112, 188);
+            this.hourNumericUpDown.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.hourNumericUpDown.Maximum = new decimal(new int[] {
             23,
             0,
             0,
             0});
             this.hourNumericUpDown.Name = "hourNumericUpDown";
-            this.hourNumericUpDown.Size = new System.Drawing.Size(48, 20);
+            this.hourNumericUpDown.Size = new System.Drawing.Size(96, 31);
             this.hourNumericUpDown.TabIndex = 12;
             // 
             // minuteNumericUpDown
             // 
-            this.minuteNumericUpDown.Location = new System.Drawing.Point(224, 94);
+            this.minuteNumericUpDown.Location = new System.Drawing.Point(448, 188);
+            this.minuteNumericUpDown.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.minuteNumericUpDown.Maximum = new decimal(new int[] {
             59,
             0,
             0,
             0});
             this.minuteNumericUpDown.Name = "minuteNumericUpDown";
-            this.minuteNumericUpDown.Size = new System.Drawing.Size(48, 20);
+            this.minuteNumericUpDown.Size = new System.Drawing.Size(96, 31);
             this.minuteNumericUpDown.TabIndex = 13;
             // 
             // hourLabel
             // 
             this.hourLabel.AutoSize = true;
-            this.hourLabel.Location = new System.Drawing.Point(12, 96);
+            this.hourLabel.Location = new System.Drawing.Point(24, 192);
+            this.hourLabel.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.hourLabel.Name = "hourLabel";
-            this.hourLabel.Size = new System.Drawing.Size(30, 13);
+            this.hourLabel.Size = new System.Drawing.Size(58, 25);
             this.hourLabel.TabIndex = 14;
             this.hourLabel.Text = "Hour";
             // 
             // minuteLabel
             // 
             this.minuteLabel.AutoSize = true;
-            this.minuteLabel.Location = new System.Drawing.Point(183, 96);
+            this.minuteLabel.Location = new System.Drawing.Point(366, 192);
+            this.minuteLabel.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.minuteLabel.Name = "minuteLabel";
-            this.minuteLabel.Size = new System.Drawing.Size(39, 13);
+            this.minuteLabel.Size = new System.Drawing.Size(77, 25);
             this.minuteLabel.TabIndex = 15;
             this.minuteLabel.Text = "Minute";
             // 
@@ -217,9 +234,11 @@
             // 
             this.difficultyGroupBox.Controls.Add(this.originalRadioButton);
             this.difficultyGroupBox.Controls.Add(this.seedlingRadioButton);
-            this.difficultyGroupBox.Location = new System.Drawing.Point(12, 120);
+            this.difficultyGroupBox.Location = new System.Drawing.Point(24, 240);
+            this.difficultyGroupBox.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.difficultyGroupBox.Name = "difficultyGroupBox";
-            this.difficultyGroupBox.Size = new System.Drawing.Size(260, 42);
+            this.difficultyGroupBox.Padding = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.difficultyGroupBox.Size = new System.Drawing.Size(520, 84);
             this.difficultyGroupBox.TabIndex = 16;
             this.difficultyGroupBox.TabStop = false;
             this.difficultyGroupBox.Text = "Difficulty";
@@ -227,9 +246,10 @@
             // originalRadioButton
             // 
             this.originalRadioButton.AutoSize = true;
-            this.originalRadioButton.Location = new System.Drawing.Point(138, 19);
+            this.originalRadioButton.Location = new System.Drawing.Point(276, 38);
+            this.originalRadioButton.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.originalRadioButton.Name = "originalRadioButton";
-            this.originalRadioButton.Size = new System.Drawing.Size(60, 17);
+            this.originalRadioButton.Size = new System.Drawing.Size(117, 29);
             this.originalRadioButton.TabIndex = 1;
             this.originalRadioButton.TabStop = true;
             this.originalRadioButton.Text = "Original";
@@ -238,19 +258,31 @@
             // seedlingRadioButton
             // 
             this.seedlingRadioButton.AutoSize = true;
-            this.seedlingRadioButton.Location = new System.Drawing.Point(6, 19);
+            this.seedlingRadioButton.Location = new System.Drawing.Point(12, 38);
+            this.seedlingRadioButton.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.seedlingRadioButton.Name = "seedlingRadioButton";
-            this.seedlingRadioButton.Size = new System.Drawing.Size(66, 17);
+            this.seedlingRadioButton.Size = new System.Drawing.Size(127, 29);
             this.seedlingRadioButton.TabIndex = 0;
             this.seedlingRadioButton.TabStop = true;
             this.seedlingRadioButton.Text = "Seedling";
             this.seedlingRadioButton.UseVisualStyleBackColor = true;
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(194, 353);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(164, 42);
+            this.button1.TabIndex = 17;
+            this.button1.Text = "Save";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // GeneralEditingForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(192F, 192F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
-            this.ClientSize = new System.Drawing.Size(284, 174);
+            this.ClientSize = new System.Drawing.Size(568, 431);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.difficultyGroupBox);
             this.Controls.Add(this.minuteLabel);
             this.Controls.Add(this.hourLabel);
@@ -268,6 +300,7 @@
             this.Controls.Add(this.healthLabel);
             this.Controls.Add(this.staminaNumericUpDown);
             this.Controls.Add(this.healthNumericUpDown);
+            this.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "GeneralEditingForm";
@@ -306,5 +339,6 @@
         private System.Windows.Forms.GroupBox difficultyGroupBox;
         private System.Windows.Forms.RadioButton originalRadioButton;
         private System.Windows.Forms.RadioButton seedlingRadioButton;
+        private System.Windows.Forms.Button button1;
     }
 }
