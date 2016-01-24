@@ -1,5 +1,5 @@
-# SOSSE
-[WIP] A save editor for Story of Seasons game, written in C#.
+# SOSSEE
+[WIP] A save editor for Story of Seasons (EUR) game, written in C#.
 
 Requirements
 ===============
@@ -9,7 +9,7 @@ or SaveDataFiler
 
 Download
 ==========
-http://github.com/Alex193a/SOSSE/releases
+http://github.com/Alex193a/SOSSEE/releases
 
 Notes before using
 ==================
