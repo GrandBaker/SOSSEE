@@ -34,7 +34,7 @@ namespace SOSSE
             hourNumericUpDown.Value = BitConverter.ToInt16(MainForm.SaveData, 0x20) + 6;
             minuteNumericUpDown.Value = BitConverter.ToInt16(MainForm.SaveData, 0x22);
             moneyTextBox.Text = BitConverter.ToUInt64(MainForm.SaveData, 0xA8).ToString();
-            healthNumericUpDown.Value = BitConverter.ToInt16(MainForm.SaveData, 0xAD);
+            healthNumericUpDown.Value = BitConverter.ToInt16(MainForm.SaveData, 0xB0);
             staminaNumericUpDown.Value = BitConverter.ToInt16(MainForm.SaveData, 0xA4);
             if (MainForm.SaveData[difficultyOffset] == 1)
                 seedlingRadioButton.Checked = true;
