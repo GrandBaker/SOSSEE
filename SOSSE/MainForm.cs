@@ -50,7 +50,7 @@ namespace SOSSE
             animalButton.Enabled = false;
             patternButton.Enabled = false;
             recipeButton.Enabled = false;
-            vendorButton.Enabled = false;
+            vendorButton.Enabled = true;
             npcButton.Enabled = false;
             generalButton.Enabled = true;
             eventButton.Enabled = false;
@@ -112,6 +112,20 @@ namespace SOSSE
                         MessageBox.Show("Invalid save file", "Error");
                         return;
                     }
+
+                    //only for testing
+                    /*
+                    using (FileStream fs = new FileStream("dec3.bin", FileMode.Create, FileAccess.Write))
+                    {
+                        using (BinaryWriter bw = new BinaryWriter(fs))
+                        {
+                        
+                            bw.Write(decompressed);
+                        }
+                    }
+                     */
+                     
+
                 }
             }
 

@@ -11,8 +11,8 @@ namespace SOSSE
 {
     public partial class VendorEditingForm : Form
     {
-        private int vendorOffset = 0x448E8;
-        private int[] vendorFlagOffset = { 0x1294, 0x1660, 0x16C4 };
+        private int vendorOffset = 0x44E28;
+        private int[] vendorFlagOffset = { 0x12EC, 0x16B8, 0x171C };
         private int currentCountry;
         private ulong currentMoney;
         private uint currentItemQuantity;
