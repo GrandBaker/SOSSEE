@@ -11,8 +11,8 @@ namespace SOSSE
 {
     public partial class ShipLogEditingForm : Form
     {
-        private const int vendorOffset = 0x47C28;
-        private const int itemQuantityOffset = 0x47E04;
+        private const int vendorOffset = 0x48168;
+        private const int itemQuantityOffset = 0x48210; //?
         private const int objectQuantityOffset = 0x49C94;
         private const int itemPriceOffset = 0x4AD88;
         private const int objectPriceOffset = 0x4CC18;
