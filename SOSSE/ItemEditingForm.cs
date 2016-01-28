@@ -18,12 +18,12 @@ namespace SOSSE
         private Item[] storageItems;
         private Item[] materialItems;
         private Item[] wardrobeItems;
-        private const int bagItemOffset = 0x1A38;
-        private const int toolboxItemOffset = 0x1ED4;
-        private const int fridgeItemOffset = 0x4DA8;
-        private const int storageItemOffset = 0x7C7C;
-        private const int materialItemOffset = 0xAB50;
-        private const int wardrobeItemOffset = 0xDA24;
+        private const int bagItemOffset = 0x1A7C;
+        private const int toolboxItemOffset = 0x1F2C;
+        private const int fridgeItemOffset = 0x4E00;
+        private const int storageItemOffset = 0x7CD4;
+        private const int materialItemOffset = 0xABA8;
+        private const int wardrobeItemOffset = 0xDA7C;
         private const int maxBagItem = 100;
         private const int maxContainerItem = 999;
 
@@ -296,7 +296,7 @@ namespace SOSSE
             storageItems = displayItem(storageDataGridView, storageItemOffset, maxContainerItem);
             materialItems = displayItem(materialDataGridView, materialItemOffset, maxContainerItem);
             wardrobeItems = displayItem(wardrobeDataGridView, wardrobeItemOffset, maxContainerItem);
-            
+
             DataLoaded = true;
         }
 
@@ -313,7 +313,7 @@ namespace SOSSE
                 localOffset += 12;
             }
             Array.Sort<Item>(items, (x, y) => x.CompareTo(y));
-            
+
             dataGridView.Rows.Add(count);
             for (int i = 0; i < count; i++)
             {
@@ -339,20 +339,20 @@ namespace SOSSE
                 {
                     dataGridView.Rows[i].Cells[1].Value = StarQualityList[12];
                     dataGridView.Rows[i].Cells[1].ReadOnly = true;
-                    dataGridView.Rows[i].Cells[1].Style.BackColor = Color.LightGray;
+                    dataGridView.Rows[i].Cells[1].Style = MainForm.GrayCellStyle;
                     dataGridView.Rows[i].Cells[2].ReadOnly = true;
-                    dataGridView.Rows[i].Cells[2].Style.BackColor = Color.LightGray;
+                    dataGridView.Rows[i].Cells[2].Style = MainForm.GrayCellStyle;
                 }
                 dataGridView.Rows[i].Cells[2].Value = items[i].Quality;
                 dataGridView.Rows[i].Cells[3].Value = items[i].Quantity;
                 if (items[i].Index == 0xFFFF || Item.BaseQuality[items[i].Index] == -1)
                 {
                     dataGridView.Rows[i].Cells[1].ReadOnly = true;
-                    dataGridView.Rows[i].Cells[1].Style.BackColor = Color.LightGray;
+                    dataGridView.Rows[i].Cells[1].Style = MainForm.GrayCellStyle;
                     dataGridView.Rows[i].Cells[2].ReadOnly = true;
-                    dataGridView.Rows[i].Cells[2].Style.BackColor = Color.LightGray;
+                    dataGridView.Rows[i].Cells[2].Style = MainForm.GrayCellStyle;
                     dataGridView.Rows[i].Cells[3].ReadOnly = true;
-                    dataGridView.Rows[i].Cells[3].Style.BackColor = Color.LightGray;
+                    dataGridView.Rows[i].Cells[3].Style = MainForm.GrayCellStyle;
                 }
             }
             return items;
@@ -362,7 +362,7 @@ namespace SOSSE
         private void dataGridView_CellClick(DataGridView dataGridView, DataGridViewCellEventArgs e)
         {
             if ((e.ColumnIndex != 0) && (e.ColumnIndex != 1)) return;
-            ComboBox cb = (ComboBox) dataGridView.EditingControl;
+            ComboBox cb = (ComboBox)dataGridView.EditingControl;
             if (cb != null) cb.DroppedDown = true;
         }
 
@@ -471,42 +471,39 @@ namespace SOSSE
                     dataGridView.Rows[e.RowIndex].Cells[1].Value =
                         StarQualityList[0];
                     dataGridView.Rows[e.RowIndex].Cells[1].ReadOnly = true;
-                    dataGridView.Rows[e.RowIndex].Cells[1].Style.BackColor =
-                        Color.LightGray;
+                    dataGridView.Rows[e.RowIndex].Cells[1].Style = MainForm.GrayCellStyle;
                     dataGridView.Rows[e.RowIndex].Cells[2].Value = -1;
                     dataGridView.Rows[e.RowIndex].Cells[2].ReadOnly = true;
-                    dataGridView.Rows[e.RowIndex].Cells[2].Style.BackColor =
-                        Color.LightGray;
+                    dataGridView.Rows[e.RowIndex].Cells[2].Style = MainForm.GrayCellStyle;
                     if (itemIndex == -1)
                         dataGridView.Rows[e.RowIndex].Cells[3].Value = 0;
                     else
                         dataGridView.Rows[e.RowIndex].Cells[3].Value = 1;
                     dataGridView.Rows[e.RowIndex].Cells[3].ReadOnly = true;
-                    dataGridView.Rows[e.RowIndex].Cells[3].Style.BackColor =
-                        Color.LightGray;
+                    dataGridView.Rows[e.RowIndex].Cells[3].Style = MainForm.GrayCellStyle;
                 }
                 else
                 {
                     dataGridView.Rows[e.RowIndex].Cells[1].Value =
                         StarQualityList[(Item.BaseQuality[itemIndex] - 1) / 30 + 1];
                     dataGridView.Rows[e.RowIndex].Cells[1].ReadOnly = false;
-                    dataGridView.Rows[e.RowIndex].Cells[1].Style.BackColor = 
-                        dataGridView.DefaultCellStyle.BackColor;
+                    dataGridView.Rows[e.RowIndex].Cells[1].Style =
+                        dataGridView.DefaultCellStyle;
                     dataGridView.Rows[e.RowIndex].Cells[2].Value =
                         Item.BaseQuality[itemIndex];
                     dataGridView.Rows[e.RowIndex].Cells[2].ReadOnly = false;
-                    dataGridView.Rows[e.RowIndex].Cells[2].Style.BackColor =
-                        dataGridView.DefaultCellStyle.BackColor;
+                    dataGridView.Rows[e.RowIndex].Cells[2].Style =
+                        dataGridView.DefaultCellStyle;
                     dataGridView.Rows[e.RowIndex].Cells[3].Value = 1;
                     dataGridView.Rows[e.RowIndex].Cells[3].ReadOnly = false;
-                    dataGridView.Rows[e.RowIndex].Cells[3].Style.BackColor =
-                        dataGridView.DefaultCellStyle.BackColor;
+                    dataGridView.Rows[e.RowIndex].Cells[3].Style =
+                        dataGridView.DefaultCellStyle;
                 }
                 return itemIndex;
             }
             return -2;
         }
-        
+
         private void bagDataGridView_CellValueChanged(object sender, DataGridViewCellEventArgs e)
         {
             if (!DataLoaded) return;
@@ -747,10 +744,7 @@ namespace SOSSE
             Array.Copy(itemBytes, 0, MainForm.SaveData, offset, 12 * count);
         }
 
-        /// <summary>
-        /// Save item changes to save data
-        /// </summary>
-        public void SaveItems()
+        private void saveAllItems()
         {
             if (IsModified)
             {
@@ -866,7 +860,7 @@ namespace SOSSE
 
         private void ItemEditingForm_FormClosing(object sender, FormClosingEventArgs e)
         {
-            this.Hide();
+            saveAllItems();
             e.Cancel = true;
         }
     }

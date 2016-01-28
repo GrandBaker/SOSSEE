@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -13,12 +13,14 @@ namespace SOSSE
 {
     public partial class MainForm : Form
     {
+        // Forms that is hidden when closing
+        //private ItemEditingForm itemEditingForm;
         private const long saveLength_USA = 0x51FB8;
         private const int headerLength_USA = 0x48;
         private const long saveLength_EUR = 0x524F8;
         private const int headerLength_EUR = 0x58;
 
-        // Save
+
         public static byte[] Header;
         public static byte[] SaveData;
 
@@ -56,21 +58,14 @@ namespace SOSSE
             eventButton.Enabled = false;
         }
 
-        private void openButton_Click(object sender, EventArgs e)
+        public void openButton_Click(object sender, EventArgs e)
         {
             OpenFileDialog openFileDialog = new OpenFileDialog();
             openFileDialog.Filter = "Binary files (*.bin)|*.bin|All files (*.*)|*.*";
             if (openFileDialog.ShowDialog() != DialogResult.OK) return;
 
-            long length = (new FileInfo(openFileDialog.FileName)).Length;
-            if (length > saveLength_EUR)
-            {
-                MessageBox.Show("Invalid save file", "Error");
-                return;
-            }
-
             // Open a decompressed save file, for testing purpose
-            if (length == saveLength_EUR)
+            if (new FileInfo(openFileDialog.FileName).Length == 0x51FB8)
             {
                 Header = null;
                 SaveData = File.ReadAllBytes(openFileDialog.FileName);
@@ -78,24 +73,14 @@ namespace SOSSE
                 return;
             }
 
-            Header = new byte[headerLength_EUR];
-            byte[] compressed = new byte[length - headerLength_EUR];
-            using (FileStream fs = new FileStream(openFileDialog.FileName, FileMode.Open, FileAccess.Read))
+            byte[] rawSave = File.ReadAllBytes(openFileDialog.FileName);
+            if (rawSave[0x58] != 0x11)
             {
-                using (BinaryReader br = new BinaryReader(fs))
-                {
-                    br.BaseStream.Seek(headerLength_EUR, SeekOrigin.Begin);
-                    byte isLZ11 = br.ReadByte();
-                    if (isLZ11 != 0x11)
-                    {
-                        MessageBox.Show("Invalid save file", "Error");
-                        return;
-                    }
-                    br.BaseStream.Seek(0x00, SeekOrigin.Begin);
-                    br.Read(Header, 0x0, headerLength_EUR);
-                    br.Read(compressed, 0x0, (int)length - headerLength_EUR);
-                }
+                MessageBox.Show("Invalid save file", "Error");
+                return;
             }
+            byte[] compressed = new byte[rawSave.Length - 0x58];
+            Array.Copy(rawSave, 0x58, compressed, 0, rawSave.Length - 0x58);
 
             // Decompress
             byte[] decompressed = null;
@@ -107,12 +92,25 @@ namespace SOSSE
                     lz11.Decompress(inStream, compressed.Length, outStream);
                     if (outStream != null)
                         decompressed = outStream.ToArray();
+                         
                     else
                     {
-                        MessageBox.Show("Invalid save file", "Error");
+                        MessageBox.Show("Invalid save file", "Decompress Error");
                         return;
                     }
                 }
+                //only for testing
+                /*
+                using (FileStream fs = new FileStream("dec2.bin", FileMode.Create, FileAccess.Write))
+                {
+                    using (BinaryWriter bw = new BinaryWriter(fs))
+                    {
+                        
+                        bw.Write(decompressed);
+                    }
+                }
+                 */
+                
             }
 
             // Check file validity and save loading
@@ -121,20 +119,31 @@ namespace SOSSE
                 MessageBox.Show("Invalid save file", "Error");
                 return;
             }
+
+            // Check decompressed save file size
+            /*
+            string filesize = Convert.ToString(decompressed.Length);
+            MessageBox.Show(filesize, "bytesize");
+             */
+             
+            Header = new byte[0x58];
+            Array.Copy(rawSave, 0, Header, 0, 0x58);
             SaveData = decompressed;
             enableButtons();
         }        
 
         private void saveAsButton_Click(object sender, EventArgs e)
         {
-            SaveFileDialog saveDialog = new SaveFileDialog();
-            saveDialog.Filter = "Binary files (*.bin)|*.bin";
-            if (saveDialog.ShowDialog() != DialogResult.OK) return;
+            SaveFileDialog sfd = new SaveFileDialog();
+            sfd.Filter = "Binary files (*.bin)|*.bin";
+            if (sfd.ShowDialog() != DialogResult.OK) return;
+
+            //if (itemEditingForm != null) itemEditingForm.SaveItems();
 
             // For testing purpose
             if (Header == null)
             {
-                File.WriteAllBytes(saveDialog.FileName, SaveData);
+                File.WriteAllBytes(sfd.FileName, SaveData);
                 return;
             }
 
@@ -148,7 +157,7 @@ namespace SOSSE
                     compressed = outStream.ToArray();
                 }
             }
-            using (FileStream fs = new FileStream(saveDialog.FileName, FileMode.Create, FileAccess.Write))
+            using (FileStream fs = new FileStream(sfd.FileName, FileMode.Create, FileAccess.Write))
             {
                 using (BinaryWriter bw = new BinaryWriter(fs))
                 {
@@ -160,7 +169,12 @@ namespace SOSSE
 
         private void itemButton_Click(object sender, EventArgs e)
         {
-            new ItemEditingForm().ShowDialog();
+            /*
+            if (itemEditingForm == null)
+                itemEditingForm = new ItemEditingForm();
+                itemEditingForm.ShowDialog();
+             */
+            new ItemEditingForm.ShowDialog();
         }
 
         private void objectButton_Click(object sender, EventArgs e)
@@ -231,6 +245,11 @@ namespace SOSSE
         private void aboutButton_Click(object sender, EventArgs e)
         {
             new AboutBox().ShowDialog();
+        }
+
+        private void MainForm_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
