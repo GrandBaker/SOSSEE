@@ -132,10 +132,12 @@ namespace SOSSE
             // Check file validity and save loading
             if (decompressed.Length != saveLength_EUR)
             {
+                labelRegion.Text = "USA";
                 MessageBox.Show("Invalid save file", "Error");
                 return;
             }
             SaveData = decompressed;
+            labelRegion.Text = "EUR";
             enableButtons();
         }        
 
