@@ -80,12 +80,12 @@ namespace SOSSE
                 Array.Copy(BitConverter.GetBytes(money), 0, MainForm.SaveData, 0xA8, 8);
             // Health
             ushort health = (ushort)healthNumericUpDown.Value;
-            MainForm.SaveData[0xA0] = (byte)(health & 0xFF);
-            MainForm.SaveData[0xA1] = (byte)((health >> 8) & 0xFF);
+            MainForm.SaveData[0xB0] = (byte)(health & 0xFF);
+            MainForm.SaveData[0xB1] = (byte)((health >> 8) & 0xFF);
             // Stamina
             ushort stamina = (ushort)staminaNumericUpDown.Value;
-            MainForm.SaveData[0xA4] = (byte)(stamina & 0xFF);
-            MainForm.SaveData[0xA5] = (byte)((stamina >> 8) & 0xFF);
+            MainForm.SaveData[0xB4] = (byte)(stamina & 0xFF);
+            MainForm.SaveData[0xB5] = (byte)((stamina >> 8) & 0xFF);
             // Difficulty
             if (seedlingRadioButton.Checked)
                 MainForm.SaveData[difficultyOffset] = 1;
