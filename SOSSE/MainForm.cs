@@ -111,20 +111,7 @@ namespace SOSSE
                     {
                         MessageBox.Show("Invalid save file", "Error");
                         return;
-                    }
-
-                    //only for testing
-                    /*
-                    using (FileStream fs = new FileStream("dec3.bin", FileMode.Create, FileAccess.Write))
-                    {
-                        using (BinaryWriter bw = new BinaryWriter(fs))
-                        {
-                        
-                            bw.Write(decompressed);
-                        }
-                    }
-                     */
-                     
+                    }                  
 
                 }
             }

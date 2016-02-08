@@ -11,7 +11,7 @@ namespace SOSSE
 {
     public partial class NPCEditingForm : Form
     {
-        private int npcOffset = 0x100; // may be misaligned, though.
+        private int npcOffset = 0x108; // may be misaligned, though.
         private int currentNPC;
         
         public const int MaxNPC = 33;
@@ -51,7 +51,7 @@ namespace SOSSE
             DataLoaded = false;
             int baseOffset = npcOffset + 84 * npcID;
             ushort friendship = BitConverter.ToUInt16(MainForm.SaveData,
-                baseOffset + 0x20);
+                baseOffset + 0xD0);
             friendshipNumericUpDown.Value = friendship;
             levelComboBox.SelectedIndex = friendship / 10000;
             giftNumericUpDown.Value = BitConverter.ToUInt16(MainForm.SaveData,
