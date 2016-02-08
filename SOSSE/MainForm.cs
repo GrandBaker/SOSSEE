@@ -49,7 +49,7 @@ namespace SOSSE
             shopButton.Enabled = false;
             animalButton.Enabled = false;
             patternButton.Enabled = false;
-            recipeButton.Enabled = false;
+            recipeButton.Enabled = true;
             vendorButton.Enabled = true;
             npcButton.Enabled = false;
             generalButton.Enabled = true;

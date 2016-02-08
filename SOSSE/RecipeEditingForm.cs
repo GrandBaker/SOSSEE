@@ -11,8 +11,8 @@ namespace SOSSE
 {
     public partial class RecipeEditingForm : Form
     {
-        private const int recipeSetOffset = 0x433E8;
-        private const int recipeOffset = 0x43578;
+        private const int recipeSetOffset = 0x43928;
+        private const int recipeOffset = 0x4372A;
         private static string[] secretNameList;
         private static int[] secretList = { 4, 4, 3, 2, 1, 1, 2, 2, 1, 4, 6, 4,
             6, 1, 1, 2, 6, 3, 4, 2, 4, 4, 5, 1, 6, 1, 4, 4, 1, 6, 3, 5, 1, 6, 1,
