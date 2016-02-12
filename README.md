@@ -9,8 +9,8 @@ or SaveDataFiler
 
 Download
 ==========
-http://github.com/Alex193a/SOSSEE/releases
-OSX release v1.7.7: http://rapidgator.net/file/6678e318f8ba6ba0e25cbb23fe99dd9c
+* http://github.com/Alex193a/SOSSEE/releases
+* OSX release v1.7.7: http://rapidgator.net/file/6678e318f8ba6ba0e25cbb23fe99dd9c
 
 Notes before using
 ==================
