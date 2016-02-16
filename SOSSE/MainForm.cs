@@ -41,7 +41,7 @@ namespace SOSSE
         {
             saveAsButton.Enabled = true;
             itemButton.Enabled = true;
-            objectButton.Enabled = false;
+            objectButton.Enabled = true;
             shipLogButton.Enabled = true;
             balanceButton.Enabled = true;
             blueprintButton.Enabled = false;

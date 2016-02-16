@@ -11,7 +11,7 @@ namespace SOSSE
 {
     public partial class ObjectEditingForm : Form
     {
-        private const int objectOffset = 0x2B302;
+        private const int objectOffset = 0x2B63A;
 
         public bool DataLoaded { get; private set; }
         public bool IsModified { get; private set; }
