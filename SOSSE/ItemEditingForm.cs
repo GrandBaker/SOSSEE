@@ -18,12 +18,12 @@ namespace SOSSE
         private Item[] storageItems;
         private Item[] materialItems;
         private Item[] wardrobeItems;
-        private const int bagItemOffset = 0x1A7C;
-        private const int toolboxItemOffset = 0x1F2C;
-        private const int fridgeItemOffset = 0x4E00;
-        private const int storageItemOffset = 0x7CD4;
-        private const int materialItemOffset = 0xABA8;
-        private const int wardrobeItemOffset = 0xDA7C;
+        private const int bagItemOffset = 0x1A4C;
+        private const int toolboxItemOffset = 0x1EFC;
+        private const int fridgeItemOffset = 0x4DD0;
+        private const int storageItemOffset = 0x7CA4;
+        private const int materialItemOffset = 0xAB78;
+        private const int wardrobeItemOffset = 0xDA4C;
         private const int maxBagItem = 100;
         private const int maxContainerItem = 999;
 
