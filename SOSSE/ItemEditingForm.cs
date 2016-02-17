@@ -866,8 +866,7 @@ namespace SOSSE
 
         private void ItemEditingForm_FormClosing(object sender, FormClosingEventArgs e)
         {
-            this.Hide();
-            e.Cancel = true;
+            saveAllItems();
         }
     }
 }
